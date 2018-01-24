@@ -1,4 +1,3 @@
-/*
 package com.pengkey.security.config;
 
 import com.alibaba.druid.support.http.StatViewServlet;
@@ -42,4 +41,3 @@ public class DruidConfig {
         return filterRegistrationBean;
     }
 }
-*/

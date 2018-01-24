@@ -40,21 +40,4 @@ public class User {
     public void setSex(Byte sex) {
         this.sex = sex;
     }
-
-    public User() {
-
-    }
-
-    public User( String name,Integer age, Byte sex) {
-        this.age = age;
-        this.name = name;
-        this.sex = sex;
-    }
-
-    public User(Long id, Integer age, String name, Byte sex) {
-        this.id = id;
-        this.age = age;
-        this.name = name;
-        this.sex = sex;
-    }
 }

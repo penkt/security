@@ -1,17 +1,20 @@
-/*
 package com.pengkey.security.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
 
 @Component
-@ConfigurationProperties(prefix = "spring.druid")
 public class DataSourceConfig {
+    public static Logger logger = LoggerFactory.getLogger(ErrorPageConfig.class);
+
+
     @Value("${spring.datasource.url}")
     private String dbUrl;
     @Value("${spring.datasource.username}")
@@ -20,30 +23,31 @@ public class DataSourceConfig {
     private String password;
     @Value("${spring.datasource.driver-class-name}")
     private String driverClassName;
-    @Value("${druid.initialSize}")
+    @Value("${spring.druid.initialSize}")
     private int initialSize;
-    @Value("${druid.minIdle}")
+    @Value("${spring.druid.minIdle}")
     private int minIdle;
-    @Value("${druid.maxActive}")
+    @Value("${spring.druid.maxActive}")
     private int maxActive;
-    @Value("${druid.minEvictableIdleTimeMillis}")
+    @Value("${spring.druid.minEvictableIdleTimeMillis}")
     private int minEvictableIdleTimeMillis;
-    @Value("${druid.testWhileIdle}")
+    @Value("${spring.druid.testWhileIdle}")
     private boolean testWhileIdle;
-    @Value("${druid.testOnBorrow}")
+    @Value("${spring.druid.testOnBorrow}")
     private boolean testOnBorrow;
-    @Value("${druid.testOnReturn}")
+    @Value("${spring.druid.testOnReturn}")
     private boolean testOnReturn;
-    @Value("${druid.timeBetweenEvictionRunsMillis}")
+    @Value("${spring.druid.timeBetweenEvictionRunsMillis}")
     private int timeBetweenEvictionRunsMillis;
-    @Value("${druid.maxWait}")
+    @Value("${spring.druid.maxWait}")
     private int maxWait;
+    @Value("${spring.druid.filters}")
+    private  String filters;
 
-    */
-/**
+    /**
      * 数据源
-     *//*
-
+     * @return
+     */
     @Bean
     public DataSource dataSource() {
         DruidDataSource dataSource = new DruidDataSource();
@@ -62,14 +66,12 @@ public class DataSourceConfig {
         dataSource.setTestOnBorrow(testOnBorrow);
         dataSource.setTestOnReturn(testOnReturn);
         //dataSource.setPoolPreparedStatements(poolPreparedStatements);
-       */
-/* try {
+ try {
             dataSource.setFilters(filters);
         } catch (SQLException e) {
             logger.error("druid configuration initialization filter", e);
-        }*//*
+        }
 
         return dataSource;
     }
 }
-*/
