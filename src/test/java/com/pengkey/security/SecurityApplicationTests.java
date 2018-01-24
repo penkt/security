@@ -10,6 +10,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -50,7 +51,7 @@ public class SecurityApplicationTests {
 		userRepository.save(new JpaUser("mmm",53,(byte)0));
 		userRepository.save(new JpaUser("nnn",57,(byte)0));
 
-		List<JpaUser>userList= userRepository.findAll();
+	/*	List<JpaUser>userList= userRepository.findAll();
 		User user=new User();
 		user.setId(1222L);
 		Example<JpaUser>example=Example.of(new JpaUser("aaa",10,(byte)0));
@@ -58,7 +59,7 @@ public class SecurityApplicationTests {
 		System.out.println(user.toString());
 		PageRequest pageRequest=new PageRequest(1,5);
 		Page<JpaUser> userPage=userRepository.findAll(pageRequest);
-		System.out.println(userPage.getContent().toString());
+		System.out.println(userPage.getContent().toString());*/
 
 	}
 	@Test

@@ -7,7 +7,8 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @SpringBootApplication
 @EnableAspectJAutoProxy
-@MapperScan(basePackages = {"com.pengkey.security.config","com.pengkey.security.dao"})
+//@ComponentScan(basePackages = {"com.pengkey.security.config","com.pengkey.security.controller","com.pengkey.security.handler"})
+@MapperScan(basePackages = {"com.pengkey.security.dao"})
 public class SecurityApplication {
 
 	public static void main(String[] args) {

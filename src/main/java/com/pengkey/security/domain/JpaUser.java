@@ -42,6 +42,10 @@ public class JpaUser {
     public void setAge(Integer age) {
         this.age = age;
     }
+    public JpaUser(){
+
+    }
+
     public JpaUser( String name,Integer age, Byte sex) {
         this.age = age;
         this.name = name;
