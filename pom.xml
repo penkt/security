@@ -24,6 +24,7 @@
         <java.version>1.8</java.version>
         <mybatis-spring-boot>1.2.0</mybatis-spring-boot>
         <mysql-connector>5.1.44</mysql-connector>
+        <docker.image.prefix>pengkey</docker.image.prefix>
     </properties>
 
     <dependencies>
@@ -183,6 +184,24 @@
                     <addResources>true</addResources>
                 </configuration>
             </plugin>
+            <!--docker-->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.4.3</version>
+                <configuration>
+                    <imageName>${docker.image.prefix}/${project.artifactId}</imageName>
+                    <dockerDirectory>src/main/docker</dockerDirectory>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
